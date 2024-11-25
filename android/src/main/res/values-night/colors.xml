@@ -1,0 +1,8 @@
+<resources>
+    <color name="black">#ffffff</color>
+    <color name="black_permanence">#fadf4b</color>
+    <color name="yellow">#fadf4b</color>
+    <color name="gray">#ffffff</color>
+    <color name="gray_light">#ffffff</color>
+    <color name="gray_progress">#efeded</color>
+</resources>

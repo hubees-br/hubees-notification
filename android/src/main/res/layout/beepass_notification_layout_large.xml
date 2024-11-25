@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notification_background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <!-- <ImageView
+        android:id="@+id/hubees_logo"
+        android:layout_width="50dp"
+        android:layout_height="28dp"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/hubees_logo" /> -->
+
+    <TextView
+        android:id="@+id/beepass_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/black"
+        android:text="beePass"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/notification_time_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/beepass_label"
+        android:textSize="10sp"
+        android:text="0h00"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/gray_light" />
+
+    <TextView
+        android:id="@+id/notification_time_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/beepass_label"
+        android:textSize="10sp"
+        android:text="3h00"
+        android:textColor="@color/gray_light"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentEnd="true" />
+
+    <!-- Barra de Progresso -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_below="@id/notification_time_end"
+        android:indeterminate="false"
+        android:max="100"
+        android:progressBackgroundTint="@color/gray_progress"
+        android:progressTint="@color/yellow" />
+
+    <TextView
+        android:id="@+id/notification_remaining_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_below="@id/progressBar"
+        android:layout_marginTop="1dp"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/notification_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/gray"
+        android:layout_below="@id/progressBar"
+        android:layout_marginTop="3dp" />
+
+    <TextView
+        android:id="@+id/remaining_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Tempo restante"
+        android:textSize="10sp"
+        android:layout_below="@id/notification_remaining_time"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/arrival_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/gray"
+        android:layout_below="@id/notification_remaining_time"
+        android:layout_marginTop="-2dp" />
+
+    <TextView
+      android:id="@+id/button_close"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentEnd="true"
+      android:textSize="10sp"
+      android:text="Fechar"
+      android:textColor="@color/black"
+      android:background="?android:attr/selectableItemBackground"
+      android:layout_below="@id/arrival_time_label"
+      android:layout_marginEnd="-5dp"
+      android:padding="5dp" />
+
+</RelativeLayout>

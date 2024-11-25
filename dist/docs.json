@@ -1,0 +1,51 @@
+{
+  "api": {
+    "name": "HubeesNotificationPlugin",
+    "slug": "hubeesnotificationplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "sendNotificationBeePass",
+        "signature": "(options: { remainingTime: number; permanence: number; arrivalTime: string; }) => Promise<{ success: boolean; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ remainingTime: number; permanence: number; arrivalTime: string; }"
+          }
+        ],
+        "returns": "Promise<{ success: boolean; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "sendnotificationbeepass"
+      },
+      {
+        "name": "isNotificationClosed",
+        "signature": "() => Promise<{ notificationClosed: boolean; }>",
+        "parameters": [],
+        "returns": "Promise<{ notificationClosed: boolean; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "isnotificationclosed"
+      },
+      {
+        "name": "closeNotification",
+        "signature": "() => Promise<{ success: boolean; }>",
+        "parameters": [],
+        "returns": "Promise<{ success: boolean; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "closenotification"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [],
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
+}
