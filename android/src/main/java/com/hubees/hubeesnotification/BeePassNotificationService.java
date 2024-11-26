@@ -73,11 +73,6 @@ public class BeePassNotificationService extends android.app.Service {
         runnable = new Runnable() {
             @Override
             public void run() {
-                // if (remainingTime <= 0) {
-                //     stopSelf();
-                //     return;
-                // }
-
                 if (!firstTime) {
                   remainingTime--;
                   permanence++;
@@ -91,7 +86,7 @@ public class BeePassNotificationService extends android.app.Service {
                 manager.notify(NOTIFICATION_ID, buildNotification());
 
                 // Reexecuta após 1 minuto
-                handler.postDelayed(this, 600);
+                handler.postDelayed(this, 60000);
             }
         };
 
