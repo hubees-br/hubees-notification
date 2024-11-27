@@ -11,6 +11,8 @@ import android.os.Build;
 import android.os.IBinder;
 import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
+import android.util.Log;
+
 
 public class BeePassNotificationService extends android.app.Service {
     private static final String CHANNEL_ID = "custom_notification_channel";
@@ -21,7 +23,6 @@ public class BeePassNotificationService extends android.app.Service {
     private int permanence;
     private String arrivalTime;
     private int progress;
-    private boolean firstTime = true;
 
     @Override
     public void onCreate() {
@@ -45,11 +46,8 @@ public class BeePassNotificationService extends android.app.Service {
             }
 
             // Atualiza os valores para o próximo ciclo
-            if (!firstTime) {
-                remainingTime--;
-                permanence++;
-            }
-            firstTime = false;
+            remainingTime--;
+            permanence++;
 
             // Agenda a próxima execução
             scheduleNotificationUpdate();
