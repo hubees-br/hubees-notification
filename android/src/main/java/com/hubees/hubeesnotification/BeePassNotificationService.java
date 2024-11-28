@@ -12,6 +12,8 @@ import android.os.IBinder;
 import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
 import android.util.Log;
+import android.provider.Settings;
+import android.net.Uri;
 
 
 public class BeePassNotificationService extends android.app.Service {
@@ -32,6 +34,30 @@ public class BeePassNotificationService extends android.app.Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        // Verifique a permissão de alarmes exatos no Android 12 ou superior
+        // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        //       AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        //       if (alarmManager != null && !alarmManager.canScheduleExactAlarms()) {
+        //           Intent intentPermission = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+        //           intentPermission.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //           startActivity(intentPermission);
+        //           return START_STICKY;
+        //       }
+        // }
+
+        // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        //     // Criar o Intent para solicitar que o usuário ignore as otimizações de bateria
+        //     Intent batteryOptimizationIntent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+        //     batteryOptimizationIntent.setData(Uri.parse("package:" + this.getPackageName()));
+
+        //     // Adicionar a FLAG_ACTIVITY_NEW_TASK
+        //     batteryOptimizationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        //     // Iniciar a Activity
+        //     startActivity(batteryOptimizationIntent);
+        // }
+
         if (intent != null) {
             // Recupera os dados passados
             remainingTime = intent.getIntExtra("remainingTime", 0);
@@ -144,10 +170,11 @@ public class BeePassNotificationService extends android.app.Service {
                     .setCustomBigContentView(notificationLayoutExcessLarge)
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                     .setShowWhen(false)
-                    .setOngoing(true)
+                    // .setOngoing(true)
                     .setSound(null)
                     .setVibrate(new long[0])
                     .setContentIntent(pendingIntent)
+                    .setDeleteIntent(closePendingIntent)
                     .build();
         } else {
             RemoteViews notificationLayoutSmall = new RemoteViews(getPackageName(), R.layout.beepass_notification_layout_small);
@@ -177,10 +204,11 @@ public class BeePassNotificationService extends android.app.Service {
                     .setCustomBigContentView(notificationLayoutLarge)
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                     .setShowWhen(false)
-                    .setOngoing(true)
+                    // .setOngoing(true)
                     .setSound(null)
                     .setVibrate(new long[0])
                     .setContentIntent(pendingIntent)
+                    .setDeleteIntent(closePendingIntent)
                     .build();
         }
     }
