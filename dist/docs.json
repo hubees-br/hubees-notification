@@ -40,6 +40,16 @@
         "docs": "",
         "complexTypes": [],
         "slug": "closenotification"
+      },
+      {
+        "name": "isExactAlarmPermissionGranted",
+        "signature": "() => Promise<{ granted: boolean; }>",
+        "parameters": [],
+        "returns": "Promise<{ granted: boolean; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "isexactalarmpermissiongranted"
       }
     ],
     "properties": []

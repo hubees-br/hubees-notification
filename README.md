@@ -16,6 +16,7 @@ npx cap sync
 * [`sendNotificationBeePass(...)`](#sendnotificationbeepass)
 * [`isNotificationClosed()`](#isnotificationclosed)
 * [`closeNotification()`](#closenotification)
+* [`isExactAlarmPermissionGranted()`](#isexactalarmpermissiongranted)
 
 </docgen-index>
 
@@ -55,6 +56,17 @@ closeNotification() => Promise<{ success: boolean; }>
 ```
 
 **Returns:** <code>Promise&lt;{ success: boolean; }&gt;</code>
+
+--------------------
+
+
+### isExactAlarmPermissionGranted()
+
+```typescript
+isExactAlarmPermissionGranted() => Promise<{ granted: boolean; }>
+```
+
+**Returns:** <code>Promise&lt;{ granted: boolean; }&gt;</code>
 
 --------------------
 
