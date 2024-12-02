@@ -106,4 +106,23 @@ public class HubeesNotificationPlugin extends Plugin {
         ret.put("granted", isGranted);
         call.resolve(ret);
     }
+
+    @PluginMethod
+    public void requestExactAlarmPermission(PluginCall call) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            AlarmManager alarmManager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
+
+            if (alarmManager != null && !alarmManager.canScheduleExactAlarms()) {
+                Intent intentPermission = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+                intentPermission.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getContext().startActivity(intentPermission);
+                call.resolve();
+            } else {
+                call.resolve();
+            }
+        } else {
+            call.reject("Este recurso não é suportado em versões do Android abaixo do Android S.");
+        }
+    }
+
 }

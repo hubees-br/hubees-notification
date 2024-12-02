@@ -12,5 +12,8 @@ export class HubeesNotificationWeb extends WebPlugin {
     async isExactAlarmPermissionGranted() {
         return { granted: true };
     }
+    async requestExactAlarmPermission() {
+        console.log('Simulando o pedido de permissão para alarmes exatos');
+    }
 }
 //# sourceMappingURL=web.js.map

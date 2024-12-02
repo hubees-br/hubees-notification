@@ -21,4 +21,8 @@ export class HubeesNotificationWeb extends WebPlugin implements HubeesNotificati
   async isExactAlarmPermissionGranted(): Promise<{ granted: boolean }> {
     return { granted: true };
   }
+
+  async requestExactAlarmPermission(): Promise<void> {
+    console.log('Simulando o pedido de permissão para alarmes exatos');
+  }
 }

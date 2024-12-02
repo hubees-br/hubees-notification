@@ -17,6 +17,7 @@ npx cap sync
 * [`isNotificationClosed()`](#isnotificationclosed)
 * [`closeNotification()`](#closenotification)
 * [`isExactAlarmPermissionGranted()`](#isexactalarmpermissiongranted)
+* [`requestExactAlarmPermission()`](#requestexactalarmpermission)
 
 </docgen-index>
 
@@ -67,6 +68,15 @@ isExactAlarmPermissionGranted() => Promise<{ granted: boolean; }>
 ```
 
 **Returns:** <code>Promise&lt;{ granted: boolean; }&gt;</code>
+
+--------------------
+
+
+### requestExactAlarmPermission()
+
+```typescript
+requestExactAlarmPermission() => Promise<void>
+```
 
 --------------------
 

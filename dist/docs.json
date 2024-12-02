@@ -50,6 +50,16 @@
         "docs": "",
         "complexTypes": [],
         "slug": "isexactalarmpermissiongranted"
+      },
+      {
+        "name": "requestExactAlarmPermission",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "requestexactalarmpermission"
       }
     ],
     "properties": []

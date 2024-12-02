@@ -10,4 +10,6 @@ export interface HubeesNotificationPlugin {
   closeNotification(): Promise<{ success: boolean }>;
 
   isExactAlarmPermissionGranted(): Promise<{ granted: boolean }>;
+
+  requestExactAlarmPermission(): Promise<void>;
 }
