@@ -17,4 +17,8 @@ export class HubeesNotificationWeb extends WebPlugin implements HubeesNotificati
   async closeNotification(): Promise<{ success: boolean }> {
     return { success: true };
   }
+
+  async isExactAlarmPermissionGranted(): Promise<{ granted: boolean }> {
+    return { granted: true };
+  }
 }

@@ -34,6 +34,15 @@ public class BeePassNotificationService extends android.app.Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        if (intent != null && "ACTION_RECREATE_NOTIFICATION".equals(intent.getAction())) {
+            // Apenas recrie e exiba a notificação
+            NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            if (manager != null) {
+                manager.notify(NOTIFICATION_ID, buildNotification());
+            }
+            return START_STICKY;
+        }
+
         // Verifique a permissão de alarmes exatos no Android 12 ou superior
         // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         //       AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -140,6 +149,17 @@ public class BeePassNotificationService extends android.app.Service {
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
 
+        // Intent para recriar a notificação
+        Intent deleteIntent = new Intent(this, BeePassNotificationService.class);
+        deleteIntent.setAction("ACTION_RECREATE_NOTIFICATION");
+        PendingIntent pendingDeleteIntent = PendingIntent.getService(
+                this,
+                0,
+                deleteIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
+
         if (remainingTime <= 0) {
             RemoteViews notificationLayoutExcessSmall = new RemoteViews(getPackageName(), R.layout.beepass_excess_notification_layout_small);
             RemoteViews notificationLayoutExcessLarge = new RemoteViews(getPackageName(), R.layout.beepass_excess_notification_layout_large);
@@ -170,11 +190,11 @@ public class BeePassNotificationService extends android.app.Service {
                     .setCustomBigContentView(notificationLayoutExcessLarge)
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                     .setShowWhen(false)
-                    // .setOngoing(true)
+                    .setOngoing(true)
                     .setSound(null)
                     .setVibrate(new long[0])
                     .setContentIntent(pendingIntent)
-                    .setDeleteIntent(closePendingIntent)
+                    .setDeleteIntent(pendingDeleteIntent)
                     .build();
         } else {
             RemoteViews notificationLayoutSmall = new RemoteViews(getPackageName(), R.layout.beepass_notification_layout_small);
@@ -204,11 +224,11 @@ public class BeePassNotificationService extends android.app.Service {
                     .setCustomBigContentView(notificationLayoutLarge)
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                     .setShowWhen(false)
-                    // .setOngoing(true)
+                    .setOngoing(true)
                     .setSound(null)
                     .setVibrate(new long[0])
                     .setContentIntent(pendingIntent)
-                    .setDeleteIntent(closePendingIntent)
+                    .setDeleteIntent(pendingDeleteIntent)
                     .build();
         }
     }

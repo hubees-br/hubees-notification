@@ -89,4 +89,20 @@ public class HubeesNotificationPlugin extends Plugin {
         response.put("success", true);
         call.resolve(response);
     }
+
+    @PluginMethod
+    public void isExactAlarmPermissionGranted(PluginCall call) {
+        JSObject ret = new JSObject();
+        boolean isGranted = false;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            AlarmManager alarmManager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
+            isGranted = alarmManager != null && alarmManager.canScheduleExactAlarms();
+        } else {
+            isGranted = true;
+        }
+
+        ret.put("granted", isGranted);
+        call.resolve(ret);
+    }
 }

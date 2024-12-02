@@ -8,4 +8,6 @@ export interface HubeesNotificationPlugin {
   isNotificationClosed(): Promise<{ notificationClosed: boolean }>;
 
   closeNotification(): Promise<{ success: boolean }>;
+
+  isExactAlarmPermissionGranted(): Promise<{ granted: boolean }>;
 }
