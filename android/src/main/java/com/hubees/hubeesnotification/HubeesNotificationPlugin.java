@@ -17,6 +17,8 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
+import android.provider.Settings;
+
 @CapacitorPlugin(name = "HubeesNotification")
 public class HubeesNotificationPlugin extends Plugin {
     private static final String CHANNEL_ID = "custom_notification_channel";
