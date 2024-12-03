@@ -25,4 +25,12 @@ export class HubeesNotificationWeb extends WebPlugin implements HubeesNotificati
   async requestExactAlarmPermission(): Promise<void> {
     console.log('Simulando o pedido de permissão para alarmes exatos');
   }
+
+  async isIgnoringBatteryOptimization(): Promise<{ isIgnoring: boolean }> {
+    return { isIgnoring: true };
+  }
+
+  async requestIgnoreBatteryOptimization(): Promise<void> {
+    console.log('Simulando o pedido para ignorar otimizações de bateria');
+  }
 }

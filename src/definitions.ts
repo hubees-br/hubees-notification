@@ -12,4 +12,8 @@ export interface HubeesNotificationPlugin {
   isExactAlarmPermissionGranted(): Promise<{ granted: boolean }>;
 
   requestExactAlarmPermission(): Promise<void>;
+
+  isIgnoringBatteryOptimization(): Promise<{ isIgnoring: boolean }>;
+
+  requestIgnoreBatteryOptimization(): Promise<void>;
 }

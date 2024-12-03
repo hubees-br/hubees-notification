@@ -18,6 +18,8 @@ npx cap sync
 * [`closeNotification()`](#closenotification)
 * [`isExactAlarmPermissionGranted()`](#isexactalarmpermissiongranted)
 * [`requestExactAlarmPermission()`](#requestexactalarmpermission)
+* [`isIgnoringBatteryOptimization()`](#isignoringbatteryoptimization)
+* [`requestIgnoreBatteryOptimization()`](#requestignorebatteryoptimization)
 
 </docgen-index>
 
@@ -76,6 +78,26 @@ isExactAlarmPermissionGranted() => Promise<{ granted: boolean; }>
 
 ```typescript
 requestExactAlarmPermission() => Promise<void>
+```
+
+--------------------
+
+
+### isIgnoringBatteryOptimization()
+
+```typescript
+isIgnoringBatteryOptimization() => Promise<{ isIgnoring: boolean; }>
+```
+
+**Returns:** <code>Promise&lt;{ isIgnoring: boolean; }&gt;</code>
+
+--------------------
+
+
+### requestIgnoreBatteryOptimization()
+
+```typescript
+requestIgnoreBatteryOptimization() => Promise<void>
 ```
 
 --------------------

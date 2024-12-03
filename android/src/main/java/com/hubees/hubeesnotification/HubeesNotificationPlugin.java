@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.Intent;
 import android.os.Build;
+import android.os.PowerManager;
 import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
 
@@ -18,6 +19,9 @@ import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
 import android.provider.Settings;
+
+import android.net.Uri;
+
 
 @CapacitorPlugin(name = "HubeesNotification")
 public class HubeesNotificationPlugin extends Plugin {
@@ -127,4 +131,32 @@ public class HubeesNotificationPlugin extends Plugin {
         }
     }
 
+    @PluginMethod
+    public void requestIgnoreBatteryOptimization(PluginCall call) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Intent batteryOptimizationIntent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+            batteryOptimizationIntent.setData(Uri.parse("package:" + getContext().getPackageName()));
+            batteryOptimizationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            getContext().startActivity(batteryOptimizationIntent);
+            call.resolve();
+        } else {
+            call.reject("Este recurso não é suportado em versões do Android abaixo do Android M.");
+        }
+    }
+
+    @PluginMethod
+    public void isIgnoringBatteryOptimization(PluginCall call) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            PowerManager powerManager = (PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
+            boolean isIgnoring = powerManager.isIgnoringBatteryOptimizations(getContext().getPackageName());
+
+            JSObject ret = new JSObject();
+            ret.put("isIgnoring", isIgnoring);
+            call.resolve(ret);
+        } else {
+            JSObject ret = new JSObject();
+            ret.put("isIgnoring", true);
+            call.resolve(ret);
+        }
+    }
 }

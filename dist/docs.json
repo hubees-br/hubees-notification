@@ -60,6 +60,26 @@
         "docs": "",
         "complexTypes": [],
         "slug": "requestexactalarmpermission"
+      },
+      {
+        "name": "isIgnoringBatteryOptimization",
+        "signature": "() => Promise<{ isIgnoring: boolean; }>",
+        "parameters": [],
+        "returns": "Promise<{ isIgnoring: boolean; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "isignoringbatteryoptimization"
+      },
+      {
+        "name": "requestIgnoreBatteryOptimization",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "requestignorebatteryoptimization"
       }
     ],
     "properties": []
