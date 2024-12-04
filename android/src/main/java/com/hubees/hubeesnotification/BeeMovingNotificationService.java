@@ -12,6 +12,7 @@ import android.os.IBinder;
 import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
 import android.util.Log;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,11 +35,18 @@ public class BeeMovingNotificationService extends android.app.Service {
         super.onCreate();
         createNotificationChannel();
 
-        retrofit = new Retrofit.Builder()
-                .baseUrl("https://api-dev.hubees.com.br/")
-                .addConverterFactory(GsonConverterFactory.create())
+        // Configura o OkHttpClient com o AuthInterceptor
+        OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new AuthInterceptor())
                 .build();
+
+        // Configura o Retrofit utilizando o OkHttpClient personalizado
+        retrofit = new Retrofit.Builder()
+                .baseUrl("https://api-dev.hubees.com.br/")
+                .client(client) // Define o cliente HTTP com interceptador
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
         stayService = retrofit.create(StayService.class);
     }
 
@@ -109,8 +117,7 @@ public class BeeMovingNotificationService extends android.app.Service {
             public void onResponse(Call<StayResponse> call, Response<StayResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     value = response.body().getValue();
-                    Log.e("BeeService", "Erro na resposta do servidor: " + response.body());
-
+                    Log.e("BeeService", "Resposta do servidor: " + response.body());
                     NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                     if (manager != null) {
                         manager.notify(NOTIFICATION_ID, buildNotification());
