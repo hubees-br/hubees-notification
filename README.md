@@ -14,6 +14,7 @@ npx cap sync
 <docgen-index>
 
 * [`sendNotificationBeePass(...)`](#sendnotificationbeepass)
+* [`sendNotificationBeeMoving(...)`](#sendnotificationbeemoving)
 * [`isNotificationClosed()`](#isnotificationclosed)
 * [`closeNotification()`](#closenotification)
 * [`isExactAlarmPermissionGranted()`](#isexactalarmpermissiongranted)
@@ -35,6 +36,21 @@ sendNotificationBeePass(options: { remainingTime: number; permanence: number; ar
 | Param         | Type                                                                             |
 | ------------- | -------------------------------------------------------------------------------- |
 | **`options`** | <code>{ remainingTime: number; permanence: number; arrivalTime: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ success: boolean; }&gt;</code>
+
+--------------------
+
+
+### sendNotificationBeeMoving(...)
+
+```typescript
+sendNotificationBeeMoving(options: { value: number; permanence: number; arrivalTime: string; }) => Promise<{ success: boolean; }>
+```
+
+| Param         | Type                                                                     |
+| ------------- | ------------------------------------------------------------------------ |
+| **`options`** | <code>{ value: number; permanence: number; arrivalTime: string; }</code> |
 
 **Returns:** <code>Promise&lt;{ success: boolean; }&gt;</code>
 

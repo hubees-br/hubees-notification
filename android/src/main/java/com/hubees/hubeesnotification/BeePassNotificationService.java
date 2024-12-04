@@ -43,30 +43,6 @@ public class BeePassNotificationService extends android.app.Service {
             return START_STICKY;
         }
 
-        // Verifique a permissão de alarmes exatos no Android 12 ou superior
-        // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-        //       AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        //       if (alarmManager != null && !alarmManager.canScheduleExactAlarms()) {
-        //           Intent intentPermission = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
-        //           intentPermission.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        //           startActivity(intentPermission);
-        //           return START_STICKY;
-        //       }
-        // }
-
-        // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        //     // Criar o Intent para solicitar que o usuário ignore as otimizações de bateria
-        //     Intent batteryOptimizationIntent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
-        //     batteryOptimizationIntent.setData(Uri.parse("package:" + this.getPackageName()));
-
-        //     // Adicionar a FLAG_ACTIVITY_NEW_TASK
-        //     batteryOptimizationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-        //     // Iniciar a Activity
-        //     startActivity(batteryOptimizationIntent);
-        // }
-
         if (intent != null) {
             // Recupera os dados passados
             remainingTime = intent.getIntExtra("remainingTime", 0);
@@ -190,6 +166,7 @@ public class BeePassNotificationService extends android.app.Service {
                     .setCustomBigContentView(notificationLayoutExcessLarge)
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                     .setShowWhen(false)
+                    .setOnlyAlertOnce(true)
                     .setOngoing(true)
                     .setSound(null)
                     .setVibrate(new long[0])
@@ -224,6 +201,7 @@ public class BeePassNotificationService extends android.app.Service {
                     .setCustomBigContentView(notificationLayoutLarge)
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                     .setShowWhen(false)
+                    .setOnlyAlertOnce(true)
                     .setOngoing(true)
                     .setSound(null)
                     .setVibrate(new long[0])

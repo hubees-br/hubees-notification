@@ -8,6 +8,13 @@ export declare class HubeesNotificationWeb extends WebPlugin implements HubeesNo
     }): Promise<{
         success: boolean;
     }>;
+    sendNotificationBeeMoving(options: {
+        value: number;
+        permanence: number;
+        arrivalTime: string;
+    }): Promise<{
+        success: boolean;
+    }>;
     isNotificationClosed(): Promise<{
         notificationClosed: boolean;
     }>;

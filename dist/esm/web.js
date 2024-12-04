@@ -3,6 +3,9 @@ export class HubeesNotificationWeb extends WebPlugin {
     async sendNotificationBeePass(options) {
         return { success: true };
     }
+    async sendNotificationBeeMoving(options) {
+        return { success: true };
+    }
     async isNotificationClosed() {
         return { notificationClosed: false };
     }

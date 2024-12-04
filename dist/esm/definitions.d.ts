@@ -6,6 +6,13 @@ export interface HubeesNotificationPlugin {
     }): Promise<{
         success: boolean;
     }>;
+    sendNotificationBeeMoving(options: {
+        value: number;
+        permanence: number;
+        arrivalTime: string;
+    }): Promise<{
+        success: boolean;
+    }>;
     isNotificationClosed(): Promise<{
         notificationClosed: boolean;
     }>;

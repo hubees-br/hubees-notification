@@ -83,6 +83,31 @@ public class HubeesNotificationPlugin extends Plugin {
     }
 
     @PluginMethod
+    public void sendNotificationBeeMoving(PluginCall call) {
+        int value = call.getInt("value", 0);
+        int permanence = call.getInt("permanence", 0);
+        String arrivalTime = call.getString("arrivalTime");
+
+        // Redefine o valor de notificationClosed para false
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("NotificationPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("notificationClosed", false);
+        editor.apply();
+
+        // Cria um Intent para iniciar o serviço
+        Intent serviceIntent = new Intent(getContext(), BeeMovingNotificationService.class);
+        serviceIntent.putExtra("value", value);
+        serviceIntent.putExtra("permanence", permanence);
+        serviceIntent.putExtra("arrivalTime", arrivalTime);
+
+        getContext().startService(serviceIntent);
+
+        JSObject response = new JSObject();
+        response.put("success", true);
+        call.resolve(response);
+    }
+
+    @PluginMethod
     public void closeNotification(PluginCall call) {
         // Cria um Intent para chamar o BroadcastReceiver
         Intent closeIntent = new Intent(getContext(), NotificationReceiver.class);

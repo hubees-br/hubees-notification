@@ -10,6 +10,14 @@ export class HubeesNotificationWeb extends WebPlugin implements HubeesNotificati
     return { success: true };
   }
 
+  async sendNotificationBeeMoving(options: {
+    value: number;
+    permanence: number;
+    arrivalTime: string;
+  }): Promise<{ success: boolean }> {
+    return { success: true };
+  }
+
   async isNotificationClosed(): Promise<{ notificationClosed: boolean }> {
     return { notificationClosed: false };
   }

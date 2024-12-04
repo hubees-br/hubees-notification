@@ -9,5 +9,10 @@
             android:name=".BeePassNotificationService"
             android:exported="false"
           />
+
+          <service
+            android:name=".BeeMovingNotificationService"
+            android:exported="false"
+          />
     </application>
 </manifest>

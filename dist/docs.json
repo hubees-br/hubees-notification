@@ -22,6 +22,22 @@
         "slug": "sendnotificationbeepass"
       },
       {
+        "name": "sendNotificationBeeMoving",
+        "signature": "(options: { value: number; permanence: number; arrivalTime: string; }) => Promise<{ success: boolean; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ value: number; permanence: number; arrivalTime: string; }"
+          }
+        ],
+        "returns": "Promise<{ success: boolean; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "sendnotificationbeemoving"
+      },
+      {
         "name": "isNotificationClosed",
         "signature": "() => Promise<{ notificationClosed: boolean; }>",
         "parameters": [],
