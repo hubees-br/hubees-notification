@@ -37,6 +37,7 @@ public class BeeMovingNotificationService extends android.app.Service {
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://api-dev.hubees.com.br/")
                 .addConverterFactory(GsonConverterFactory.create())
+                .addInterceptor(new AuthInterceptor())
                 .build();
         stayService = retrofit.create(StayService.class);
     }
