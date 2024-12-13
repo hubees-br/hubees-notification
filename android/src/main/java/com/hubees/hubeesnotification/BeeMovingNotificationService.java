@@ -25,7 +25,7 @@ public class BeeMovingNotificationService extends android.app.Service {
 
     private int value;
     private int permanence;
-    private String arrivalTime;
+    private int valueWithDiscount;
 
     private Retrofit retrofit;
     private StayService stayService;
