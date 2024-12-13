@@ -37,7 +37,7 @@ public class BeeMovingNotificationService extends android.app.Service {
 
         // Configura o OkHttpClient com o AuthInterceptor
         OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(new AuthInterceptor(getApplicationContext()))
+                .addInterceptor(new AuthInterceptor())
                 .build();
 
         // Configura o Retrofit utilizando o OkHttpClient personalizado
