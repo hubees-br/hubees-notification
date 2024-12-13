@@ -37,7 +37,7 @@ public class BeeMovingNotificationService extends android.app.Service {
 
         // Configura o OkHttpClient com o AuthInterceptor
         OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(new AuthInterceptor())
+                .addInterceptor(new AuthInterceptor(getApplicationContext()))
                 .build();
 
         // Configura o Retrofit utilizando o OkHttpClient personalizado
@@ -96,7 +96,7 @@ public class BeeMovingNotificationService extends android.app.Service {
         Intent intent = new Intent(this, BeeMovingNotificationService.class);
         intent.putExtra("value", value);
         intent.putExtra("permanence", permanence);
-        intent.putExtra("arrivalTime", arrivalTime);
+        intent.putExtra("valueWithDiscount", valueWithDiscount);
 
         PendingIntent pendingIntent = PendingIntent.getService(
                 this,
@@ -163,10 +163,10 @@ public class BeeMovingNotificationService extends android.app.Service {
         RemoteViews notificationLayoutSmall = new RemoteViews(getPackageName(), R.layout.beemoving_notification_layout_small);
         RemoteViews notificationLayoutLarge = new RemoteViews(getPackageName(), R.layout.beemoving_notification_layout_large);
         notificationLayoutSmall.setTextViewText(R.id.permanence, formatTime(permanence));
-        notificationLayoutSmall.setTextViewText(R.id.arrival_time, arrivalTime);
+        notificationLayoutSmall.setTextViewText(R.id.valueWithDiscount, valueWithDiscount);
         notificationLayoutSmall.setTextViewText(R.id.value, String.valueOf(value));
         notificationLayoutLarge.setTextViewText(R.id.permanence, formatTime(permanence));
-        notificationLayoutLarge.setTextViewText(R.id.arrival_time, arrivalTime);
+        notificationLayoutLarge.setTextViewText(R.id.valueWithDiscount, valueWithDiscount);
         notificationLayoutLarge.setTextViewText(R.id.value, String.valueOf(value));
 
         return new NotificationCompat.Builder(this, CHANNEL_ID)

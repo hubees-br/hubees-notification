@@ -23,12 +23,12 @@
       },
       {
         "name": "sendNotificationBeeMoving",
-        "signature": "(options: { value: number; permanence: number; arrivalTime: string; }) => Promise<{ success: boolean; }>",
+        "signature": "(options: { value: number; permanence: number; valueWithDiscount: string; }) => Promise<{ success: boolean; }>",
         "parameters": [
           {
             "name": "options",
             "docs": "",
-            "type": "{ value: number; permanence: number; arrivalTime: string; }"
+            "type": "{ value: number; permanence: number; valueWithDiscount: string; }"
           }
         ],
         "returns": "Promise<{ success: boolean; }>",

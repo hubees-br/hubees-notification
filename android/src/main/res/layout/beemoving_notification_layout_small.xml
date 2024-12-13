@@ -68,27 +68,26 @@
                 android:ellipsize="end" />
         </LinearLayout>
 
-        <!-- Coluna 3: Chegada -->
+        <!-- Coluna 3: Valor com desconto -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/arrival_time"
+                android:id="@+id/valueWithDiscount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gray"
                 android:textSize="16sp"
-                android:gravity="center_horizontal"
                 android:maxLines="1"
                 android:ellipsize="end" />
 
             <TextView
-                android:id="@+id/arrival_time_label"
+                android:id="@+id/valueWithDiscountLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chegada"
+                android:text="Valor a pagar até o\n momento com desconto\n Hubees"
                 android:textColor="@color/gray"
                 android:textSize="7sp"
                 android:maxLines="1"

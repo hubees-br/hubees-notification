@@ -45,7 +45,7 @@
                 android:id="@+id/permanence_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Permanência até o momento"
+                android:text="Permanência até\n o momento"
                 android:textColor="@color/gray"
                 android:textSize="7sp"
                 android:maxLines="1"
@@ -73,21 +73,21 @@
                 android:id="@+id/value_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Valor a pagar até o momento"
+                android:text="Valor sem\n desconto Hubees"
                 android:textColor="@color/gray"
                 android:textSize="7sp"
                 android:maxLines="1"
                 android:ellipsize="end" />
         </LinearLayout>
 
-        <!-- Coluna 3: Chegada -->
+        <!-- Coluna 3: Valor com desconto -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/arrival_time"
+                android:id="@+id/valueWithDiscount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gray"
@@ -96,10 +96,10 @@
                 android:ellipsize="end" />
 
             <TextView
-                android:id="@+id/arrival_time_label"
+                android:id="@+id/valueWithDiscountLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chegada"
+                android:text="Valor a pagar até o\n momento com desconto\n Hubees"
                 android:textColor="@color/gray"
                 android:textSize="7sp"
                 android:maxLines="1"

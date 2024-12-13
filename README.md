@@ -45,12 +45,12 @@ sendNotificationBeePass(options: { remainingTime: number; permanence: number; ar
 ### sendNotificationBeeMoving(...)
 
 ```typescript
-sendNotificationBeeMoving(options: { value: number; permanence: number; arrivalTime: string; }) => Promise<{ success: boolean; }>
+sendNotificationBeeMoving(options: { value: number; permanence: number; valueWithDiscount: string; }) => Promise<{ success: boolean; }>
 ```
 
-| Param         | Type                                                                     |
-| ------------- | ------------------------------------------------------------------------ |
-| **`options`** | <code>{ value: number; permanence: number; arrivalTime: string; }</code> |
+| Param         | Type                                                                           |
+| ------------- | ------------------------------------------------------------------------------ |
+| **`options`** | <code>{ value: number; permanence: number; valueWithDiscount: string; }</code> |
 
 **Returns:** <code>Promise&lt;{ success: boolean; }&gt;</code>
 

@@ -11,7 +11,7 @@ export declare class HubeesNotificationWeb extends WebPlugin implements HubeesNo
     sendNotificationBeeMoving(options: {
         value: number;
         permanence: number;
-        arrivalTime: string;
+        valueWithDiscount: string;
     }): Promise<{
         success: boolean;
     }>;
