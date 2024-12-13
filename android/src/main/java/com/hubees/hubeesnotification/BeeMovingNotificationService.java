@@ -63,7 +63,7 @@ public class BeeMovingNotificationService extends android.app.Service {
         if (intent != null) {
             value = intent.getIntExtra("value", 0);
             permanence = intent.getIntExtra("permanence", 0);
-            arrivalTime = intent.getStringExtra("arrivalTime");
+            valueWithDiscount =  intent.getIntExtra("valueWithDiscount", 0);
 
             NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             if (manager != null) {
