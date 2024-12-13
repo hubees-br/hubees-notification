@@ -163,10 +163,10 @@ public class BeeMovingNotificationService extends android.app.Service {
         RemoteViews notificationLayoutSmall = new RemoteViews(getPackageName(), R.layout.beemoving_notification_layout_small);
         RemoteViews notificationLayoutLarge = new RemoteViews(getPackageName(), R.layout.beemoving_notification_layout_large);
         notificationLayoutSmall.setTextViewText(R.id.permanence, formatTime(permanence));
-        notificationLayoutSmall.setTextViewText(R.id.valueWithDiscount, valueWithDiscount);
+        notificationLayoutSmall.setTextViewText(R.id.valueWithDiscount, String.valueOf(valueWithDiscount));
         notificationLayoutSmall.setTextViewText(R.id.value, String.valueOf(value));
         notificationLayoutLarge.setTextViewText(R.id.permanence, formatTime(permanence));
-        notificationLayoutLarge.setTextViewText(R.id.valueWithDiscount, valueWithDiscount);
+        notificationLayoutLarge.setTextViewText(R.id.valueWithDiscount, String.valueOf(valueWithDiscount));
         notificationLayoutLarge.setTextViewText(R.id.value, String.valueOf(value));
 
         return new NotificationCompat.Builder(this, CHANNEL_ID)
