@@ -13,7 +13,7 @@ export class HubeesNotificationWeb extends WebPlugin implements HubeesNotificati
   async sendNotificationBeeMoving(options: {
     value: number;
     permanence: number;
-    valueWithDiscount: string;
+    valueWithDiscount: number;
   }): Promise<{ success: boolean }> {
     return { success: true };
   }

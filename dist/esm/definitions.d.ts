@@ -9,7 +9,7 @@ export interface HubeesNotificationPlugin {
     sendNotificationBeeMoving(options: {
         value: number;
         permanence: number;
-        valueWithDiscount: string;
+        valueWithDiscount: number;
     }): Promise<{
         success: boolean;
     }>;
